@@ -59,7 +59,7 @@ public class InputFactory {
 		try (BufferedReader br = new BufferedReader(new FileReader("robots.txt"))) {
 			int numRobots = Integer.parseInt(br.readLine().trim());
 			if (numRobots < 1) {
-				System.err.println("Invalid number of robots!");
+				System.err.println("INPUT ERROR!");
 				return false;
 			}
 
@@ -68,12 +68,12 @@ public class InputFactory {
 			while ((line = br.readLine()) != null) {
 				numLines++;
 				if (numLines > numRobots) {
-					System.err.println("Excess robot information!");
+					System.err.println("INPUT ERROR!");
 					return false;
 				}
 				String[] parts = line.split(" ");
 				if (parts.length != 3) {
-					System.err.println("Invalid robot information format!");
+					System.err.println("INPUT ERROR!");
 					return false;
 				}
 				int x = Integer.parseInt(parts[0]);
@@ -81,13 +81,13 @@ public class InputFactory {
 				char direction = parts[2].charAt(0);
 
 				if (x < 0 || y < 0 || (direction != 'U' && direction != 'D' && direction != 'L' && direction != 'R')) {
-					System.err.println("Invalid robot information values!");
+					System.err.println("INPUT ERROR!");
 					return false;
 				}
 			}
 
 			if (numLines != numRobots - 1) {
-				System.err.println("Insufficient robot information!");
+				System.err.println("INPUT ERROR!");
 				return false;
 			}
 

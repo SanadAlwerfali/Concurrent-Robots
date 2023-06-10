@@ -90,7 +90,7 @@ public class Simulation {
 		for (int i = 0; i < robot.length; i++) {
 			for (int j = i + 1; j < robot.length; j++) {
 				if (robot[i].getX() == robot[j].getX() && robot[i].getY() == robot[j].getY()) {
-					System.out.println("COLLISION DETECTED AT (" + (robot[i].getX()) + ","
+					System.out.println("COLLISION AT CELL (" + (robot[i].getX()) + ","
 							+ (room.getDimension() - robot[j].getY() - 1) + ")");
 					return false;
 				}
